@@ -1,0 +1,23 @@
+,,,,,,,We have previously purchased a similar board and here are some details of that purchase. ,
+#,Reference,Qty,Value,Footprint, Estimated Price (Per Board) ,DNP,Actual Purchase Mfg Part #, Unit Price 
+1,BT2,1,2477,2477:BAT_2477, FALSE ,X,,
+2,"C1, C2, C4, C5",4,4.7uF,Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder, $0.384 ,,JMK212BJ475MG-T, $0.096 
+3,C3,1,3.3pF,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder, $0.104 ,,VJ0603A3R3BXJCW1BC, $0.104 
+4,"D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34, D35, D36, D37, D38, D39, D40, D41, D42, D43, D44, D45, D46, D47, D48, D49, D50",50,WS2812B,LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm, $2.250 ,,SK6812, $0.045 
+5,"D51, D52",2,BAT54W-HG3-18,Diode_SMD:D_SOD-123, $0.326 ,,, $0.163 
+6,J1,1,Conn_02x03_Odd_Even,Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical, FALSE ,X,,
+7,J3,1,Conn_01x03_Female,Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical, FALSE ,X,,
+8,L1,1,3.3uH,Inductor_SMD:L_1008_2520Metric_Pad1.43x2.20mm_HandSolder, $0.089 ,,MLP2520S3R3MT0S1, $0.089 
+9,Q1,1,2N7002H,Package_TO_SOT_SMD:SOT-23, $0.299 ,,, $0.299 
+10,Q2,1,DMP2012SN-7,Package_TO_SOT_SMD:SOT-23, $0.158 ,,, $0.158 
+11,"R1, R4, R5",3,10k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder, $0.003 ,,RC0603FR-1310KL, $0.001 
+12,R2,1,620k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder, $0.016 ,,RT0603FRE07620KL, $0.016 
+13,R3,1,200k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder, $0.015 ,,RT0603FRE07200KL, $0.015 
+14,"R6, R7, R8, R9",4,500,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder, $0.008 ,,RC0603FR-07499RL, $0.002 
+15,SW1,1,SW_MEC_5G,Button_Switch_SMD:SW_SPST_EVPBF, $0.027 ,,TS5225A, $0.027 
+16,U1,1,Pico,MCU_RaspberryPi_and_Boards:RPi_Pico_SMD_TH, $5.000 ,,https://www.newark.com/raspberry-pi/raspberry-pi-pico/raspberry-pi-board-arm-cortex/dp/22AJ1097?gclid=CjwKCAjwv8qkBhAnEiwAkY-ahv-_kwZNKdWBnmbOS3mxwz2VfTC4-qaTTPtKzZM6uVpgPxusx_suoBoCnVwQAvD_BwE&mckv=_dc%7Cpcrid%7C%7Cplid%7C%7Ckword%7C%7Cmatch%7C%7Cslid%7C%7Cproduct%7C22AJ1097%7Cpgrid%7C%7Cptaid%7C%7C&CMP=KNC-GUSA-PMAX-Shopping-High-ROAS-S40 , $5.000 
+17,U2,1,TPS61040DDC,Package_TO_SOT_SMD:SOT-23-5, $0.494 ,,TPS61040DDCT, $0.494 
+,,,,,,,,
+,,,,Estimated BoM, $9.173 ,,,
+,,,,Total Boards,300,,,
+,,,,Estimated Material Cost," $2,751.90 ",,,
