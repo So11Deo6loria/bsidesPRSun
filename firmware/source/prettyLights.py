@@ -22,7 +22,7 @@ class LEDS:
     self.ledBaseColors = [[0]*3]*14
     self.secPerBeat = 1000
 
-    self.updateColorScheme(self.colorScheme)
+    #self.updateColorScheme(self.colorScheme)
 
   def wakeup(self):
     self.ledPower.on()
@@ -110,11 +110,11 @@ class LEDS:
       self.tickHeartbeat()
       time.sleep(timeDelay)
 
-  # Caleb Dumb
-  def redLogoBlink(self, blinkDelay, intensity):
+  def logoBlink(self, color, blinkDelay, intensity):
+      scaledColor = [round(element * intensity) for element in color]
       for i in range(50):
-        if( i >= 30 and i < 41 ):
-          self.strand[i] = tuple([int(255*intensity), 0, 0])
+        if( i >= 39 and i < 50 ):
+          self.strand[i] = tuple(scaledColor)
         else:
           self.strand[i] = tuple([0, 0, 0])      
       self.strand.write()
@@ -136,8 +136,71 @@ class LEDS:
       self.strand.write()
       return True       
 
-  def flag(self, flagConfig, intensity):
+  def setFlag(self, flagName, intensity):
+    print(f"Setting Flag: {flagName}")
+    flagConfig = constants.FLAG_MAPPING[flagName]
     scaledFlagConfig = [[round(element * intensity) for element in led] for led in flagConfig] # Scale the original flag config based on the intensity
     for i in range(50):
       self.strand[i] = tuple(scaledFlagConfig[i])
     self.strand.write()
+
+  def ledTest( self ):
+    for i in range(50):
+      for led in range(50):
+        if( i == led ):
+          self.strand[led] = tuple([255,0,0])
+        else:
+          self.strand[led] = tuple([0,0,0])
+      self.strand.write()
+      time.sleep(0.25)
+
+  def blinkWords(self, wordArray, color, letterDelay, intensity):
+    wordDelay = letterDelay * 2
+    scaledColor = [round(element * intensity) for element in color]
+    for word in wordArray:
+      for letter in word: 
+        letter = letter.upper()
+        for led in range(50):
+          if( led+1 in constants.LETTER_CONFIG[letter] ):
+            self.strand[led] = tuple(scaledColor)
+          else:
+            self.strand[led] = constants.LED_OFF
+        self.strand.write()
+        time.sleep(letterDelay)
+      time.sleep(wordDelay)
+
+  def waveAnimation(self, flagName, intensity, duration=30):
+    startTime = utime.ticks_ms()
+    
+    dimness = intensity / 4
+    flagConfig = constants.FLAG_MAPPING[flagName]
+    intenseFlagConfig = [[round(element * intensity) for element in led] for led in flagConfig] # Scale the original flag config based on the intensity
+    dimFlagConfig     = [[round(element * dimness  ) for element in led] for led in flagConfig] # Scale the original flag config based on the intensity
+    
+    self.setFlag( flagName, intensity )
+
+    lines = constants.LINE_CONFIG
+    numOfLines = 2
+    # The dim array length might not be accurate every time but it shouldn't cause issues
+    dimArrayLength = round( len(lines) / numOfLines ) * ( numOfLines - 1 ) + len(lines) + 1
+    dimArray = [[] for _ in range(dimArrayLength)] 
+    for numOfLinesIndex in range(numOfLines):
+      index = round(( len(lines) / numOfLines ) * numOfLinesIndex)
+      for line in lines:
+        dimArray[index] = dimArray[index] + line
+        index = index + 1
+
+    enabled = True
+    while( enabled ):
+      if(utime.ticks_diff(utime.ticks_ms(), startTime) < duration*1000):
+        for line in dimArray:
+          for led in range(constants.LED_COUNT):
+            if( (led+1) in line ):
+              self.strand[led] = tuple(dimFlagConfig[led])
+            else:
+              self.strand[led] = tuple(intenseFlagConfig[led])
+          self.strand.write()
+          time.sleep(constants.WAVE_DELAY)
+        #time.sleep(constants.WAVE_DELAY*5)      
+      else:
+        enabled = False

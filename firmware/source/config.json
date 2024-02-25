@@ -1,5 +1,5 @@
 {
-  "startupColor": "heart",
-  "heartbeatColor": "heart",
-  "sleepTimeout": 600
+  "startupColor": "white",
+  "flag": "puertorico",
+  "sleepTimeout": 300
 }
