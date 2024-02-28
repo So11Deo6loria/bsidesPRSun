@@ -169,9 +169,7 @@ class LEDS:
         time.sleep(letterDelay)
       time.sleep(wordDelay)
 
-  def waveAnimation(self, flagName, intensity, duration=30):
-    startTime = utime.ticks_ms()
-    
+  def waveAnimation(self, flagName, intensity):
     dimness = intensity / 4
     flagConfig = constants.FLAG_MAPPING[flagName]
     intenseFlagConfig = [[round(element * intensity) for element in led] for led in flagConfig] # Scale the original flag config based on the intensity
@@ -190,17 +188,11 @@ class LEDS:
         dimArray[index] = dimArray[index] + line
         index = index + 1
 
-    enabled = True
-    while( enabled ):
-      if(utime.ticks_diff(utime.ticks_ms(), startTime) < duration*1000):
-        for line in dimArray:
-          for led in range(constants.LED_COUNT):
-            if( (led+1) in line ):
-              self.strand[led] = tuple(dimFlagConfig[led])
-            else:
-              self.strand[led] = tuple(intenseFlagConfig[led])
-          self.strand.write()
-          time.sleep(constants.WAVE_DELAY)
-        #time.sleep(constants.WAVE_DELAY*5)      
-      else:
-        enabled = False
+    for line in dimArray:
+      for led in range(constants.LED_COUNT):
+        if( (led+1) in line ):
+          self.strand[led] = tuple(dimFlagConfig[led])
+        else:
+          self.strand[led] = tuple(intenseFlagConfig[led])
+      self.strand.write()
+      time.sleep(constants.WAVE_DELAY)

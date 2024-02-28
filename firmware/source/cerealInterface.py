@@ -87,17 +87,15 @@ def uartSecret(uart):
 
 def uartWhoami(uart):
     #just a joke
-    uart.write("\r\nheart\r\n")
+    uart.write("\r\ntaino sun\r\n")
 
 def uartInstructions(uart):
- 
   uart.write(instructions)
 
 def uartPrompt(uart):
   prompt="\r\n> "
   uart.write(prompt)
    
-
 def uartHelp(uart):
   uart.write("\r\nAvailable Commands: \r\n")
   uart.write(" help:    Displays this help window\r\n")
@@ -106,14 +104,10 @@ def uartHelp(uart):
   uart.write(" secret:  wanna know a secret...\r\n")
   uart.write(" connect: Instructions to customize me!\r\n")
 
-
-
-      
 class CerealInterface:
   def __init__(self):
     print("Cereal Init")
     self.uart = UART(0, baudrate=constants.BAUD_RATE, tx=machine.Pin(constants.CEREAL_TX_PIN), rx=machine.Pin(constants.CEREAL_RX_PIN))
-
 
   #Run your serial connection with local echo
   def uartShell(self):

@@ -72,33 +72,25 @@ class Main:
 
         self.button = Pin(constants.BUTTON, Pin.IN, Pin.PULL_UP)
 
-        #serialInterface = cerealInterface.CerealInterface()
-        #_thread.start_new_thread(serialInterface.uartShell, ())
+        serialInterface = cerealInterface.CerealInterface()
+        _thread.start_new_thread(serialInterface.uartShell, ())
 
         #Initialize LED Manager and Turn on Power
         self.leds = prettyLights.LEDS()
         self.leds.wakeup()
         self.startupAnimation()
 
-        while( True ):
-            self.leds.waveAnimation(self.flagName, constants.LED_MAX, 5)
-            self.leds.darkness()   
-            time.sleep(0.5)                 
-
         #Capture the Bootup Time
         startTime = utime.ticks_ms()
 
         while(True):
-            currentTime = utime.ticks_ms()
-
-            if((self.button.value() != 1) or (utime.ticks_diff(utime.ticks_ms(), startTime) > int(self.sleepTimeout)*1000)):
+            if((self.button.value() != 1) or (utime.ticks_diff(utime.ticks_ms(), startTime) > self.sleepTimeout*1000)):
                 print("getting sleepy")
-                self.lowPowerPause()
-                startTime = utime.ticks_ms()
-                self.startupAnimation()
+                #self.lowPowerPause()
+                #startTime = utime.ticks_ms()
+                #self.startupAnimation()
 
-            self.sensor.hrRunLoop()
-            self.leds.tickHeartbeat()
-            utime.sleep_ms(10)
+            self.leds.waveAnimation(self.flagName, constants.LED_MAX)
+            time.sleep(0.1)
 
 Main()
