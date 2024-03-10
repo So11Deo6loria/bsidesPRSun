@@ -268,37 +268,23 @@ COLOR_SCHEMES = {
   ['f0aa37','ffd52b','00ffd7','2edfb4','10b990','9476d6','f23333',
    '9476d6','d65a8a','00ffd7','2edfb4','9476d6','f23333','f23333'],
 
-  # 'luckycharms':
-  # ['216209', '8fac06', 'bdd9a3', '56a20d', '91d521'],
-
-  # 'fruitloops':
-  # ['ff0000', 'ffe700', '7cff00', 'c900ff', '00dfff'],
-
-  # 'trix':
-  # ['58e3ff', '87a2ff', 'af7ffc', 'da4e7d', 'f14848'],
-
   'rainbow':
   ['ff008f', 'ff00ff', '0010ff', '00cfff', '00ff00', 'ff5500', 'ff1500',
    'ff00ff', '0020ff', '00cfff', '00ff00', 'ffaf00', 'ff1500','ff0000',],
 
   'applejacks':
   ['3cbf2e', 'e88f23', '7a4606', '3cbf2e', 'e88f23', '7a4606', '3cbf2e',
-   'e88f23', '7a4606', '3cbf2e', 'e88f23', '7a4606', '3cbf2e', 'e88f23']
+   'e88f23', '7a4606', '3cbf2e', 'e88f23', '7a4606', '3cbf2e', 'e88f23'],
 
-  #  'booberry':
-  #  ['8362a6','68bce3','4a7e96','fc0505'],
+  'puertoRicoFlag': ['0000ff', 'ffffff', '0000ff', '0000ff', '0000ff', 'ffffff', '0000ff', '0000ff', '0000ff', 'ffffff', 
+    '0000ff', 'ffffff', 'ff0000', 'ff0000', 'ff0000', 'ff0000', 'ffffff', 'ffffff', '0000ff', 'ff0000', 
+    '0000ff', '0000ff', '0000ff', '0000ff', '0000ff', 'ff0000', 'ffffff', 'ff0000', 'ff0000', 'ff0000', 
+    'ff0000', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ff0000', 'ff0000', 'ff0000', 'ffffff', 'ffffff', 
+    'ff0000', 'ffffff', 'ff0000', 'ffffff', 'ff0000', 'ff0000', 'ff0000', 'ff0000', 'ff0000', 'ff0000']
+}
 
-  #   'creepercrunch':
-  #  ['8fe38f','0f800f','0db50d','609e60','004500'],
 
-  #  'reesespuffs':
-  #  ['fe5200','551e0a','fdef14'],
 
-  #  'carmellacreeper':
-  #  ['22b32c','a2b322','e56fed','ed6fb7'],
-
-  #  'frankenberry':
-  #  ['ed6fb7','6fc1ed','cf84f0','e5dfe8']
 }
 
 STARTUP_CONFIG = [ 
@@ -333,6 +319,24 @@ LED_CONFIG = [
     {'startTime': 0.5723, 'pulseWidth': 0.2660}, #12
     {'startTime': 0.5862, 'pulseWidth': 0.2656}, #13
     {'startTime': 0.6032,	'pulseWidth': 0.3256}  #14
+]
+
+
+WAVE_SMOOTH = STARTUP_CONFIG = [ 
+    {'startTime': 0.3237, 'pulseWidth': 0.50}, #1
+    {'startTime': 0.2016, 'pulseWidth': 0.50}, #2
+    {'startTime': 0.0873, 'pulseWidth': 0.50}, #3
+    {'startTime': 0.0972, 'pulseWidth': 0.50}, #4
+    {'startTime': 0.0760, 'pulseWidth': 0.50}, #5
+    {'startTime': 0.2154, 'pulseWidth': 0.50}, #6
+    {'startTime': 0.2739, 'pulseWidth': 0.50}, #7
+    {'startTime': 0.1781, 'pulseWidth': 0.50}, #8
+    {'startTime': 0.1110, 'pulseWidth': 0.50}, #9
+    {'startTime': 0.1004, 'pulseWidth': 0.50}, #10
+    {'startTime': 0.0967, 'pulseWidth': 0.50}, #11
+    {'startTime': 0.2241, 'pulseWidth': 0.50}, #12
+    {'startTime': 0.3065, 'pulseWidth': 0.50}, #13
+    {'startTime': 0.3417,	'pulseWidth': 0.50}  #14
 ]
 
 
@@ -375,6 +379,59 @@ LINE_CONFIG_FULL = [
   [46, 45, 43, 33],
   [48, 47, 44, 36, 35],
   [50, 49, 39, 34]
+]
+
+WaveAnimation = [
+  {'startTime': 0.0, 'pulseWidth': 0.50},   # 1 is at index 0
+  {'startTime': 2.0, 'pulseWidth': 0.50},   # 2 is at index 2
+  {'startTime': 1.0, 'pulseWidth': 0.50},   # 3 is at index 1
+  {'startTime': 1.0, 'pulseWidth': 0.50},   # 4 is at index 1
+  {'startTime': 2.0, 'pulseWidth': 0.50},   # 5 is at index 2
+  {'startTime': 2.0, 'pulseWidth': 0.50},   # 6 is at index 2
+  {'startTime': 3.0, 'pulseWidth': 0.50},   # 7 is at index 3
+  {'startTime': 1.0, 'pulseWidth': 0.50},   # 8 is at index 1
+  {'startTime': 1.0, 'pulseWidth': 0.50},   # 9 is at index 1
+  {'startTime': 3.0, 'pulseWidth': 0.50},   # 10 is at index 3
+  {'startTime': 5.0, 'pulseWidth': 0.50},   # 11 is at index 5
+  {'startTime': 3.0, 'pulseWidth': 0.50},   # 12 is at index 3
+  {'startTime': 3.0, 'pulseWidth': 0.50},   # 13 is at index 3
+  {'startTime': 5.0, 'pulseWidth': 0.50},   # 14 is at index 5
+  {'startTime': 5.0, 'pulseWidth': 0.50},   # 15 is at index 5
+  {'startTime': 3.0, 'pulseWidth': 0.50},   # 16 is at index 3
+  {'startTime': 5.0, 'pulseWidth': 0.50},   # 17 is at index 5
+  {'startTime': 5.0, 'pulseWidth': 0.50},   # 18 is at index 5
+  {'startTime': 6.0, 'pulseWidth': 0.50},   # 19 is at index 6
+  {'startTime': 5.0, 'pulseWidth': 0.50},   # 20 is at index 5
+  {'startTime': 4.0, 'pulseWidth': 0.50},   # 21 is at index 4
+  {'startTime': 7.0, 'pulseWidth': 0.50},   # 22 is at index 7
+  {'startTime': 7.0, 'pulseWidth': 0.50},   # 23 is at index 7
+  {'startTime': 5.0, 'pulseWidth': 0.50},   # 24 is at index 5
+  {'startTime': 7.0, 'pulseWidth': 0.50},   # 25 is at index 7
+  {'startTime': 7.0, 'pulseWidth': 0.50},   # 26 is at index 7
+  {'startTime': 5.0, 'pulseWidth': 0.50},   # 27 is at index 5
+  {'startTime': 6.0, 'pulseWidth': 0.50},   # 28 is at index 6
+  {'startTime': 7.0, 'pulseWidth': 0.50},   # 29 is at index 7
+  {'startTime': 8.0, 'pulseWidth': 0.50},   # 30 is at index 8
+  {'startTime': 8.0, 'pulseWidth': 0.50},   # 31 is at index 8
+  {'startTime': 9.0, 'pulseWidth': 0.50},   # 32 is at index 9
+  {'startTime': 11.0, 'pulseWidth': 0.50},  # 33 is at index 11
+  {'startTime': 11.0, 'pulseWidth': 0.50},  # 34 is at index 11
+  {'startTime': 11.0, 'pulseWidth': 0.50},  # 35 is at index 11
+  {'startTime': 10.0, 'pulseWidth': 0.50},  # 36 is at index 10
+  {'startTime': 7.0, 'pulseWidth': 0.50},   # 37 is at index 7
+  {'startTime': 7.0, 'pulseWidth': 0.50},   # 38 is at index 7
+  {'startTime': 11.0, 'pulseWidth': 0.50},  # 39 is at index 11
+  {'startTime': 7.0, 'pulseWidth': 0.50},   # 40 is at index 7
+  {'startTime': 8.0, 'pulseWidth': 0.50},   # 41 is at index 8
+  {'startTime': 8.0, 'pulseWidth': 0.50},   # 42 is at index 8
+  {'startTime': 9.0, 'pulseWidth': 0.50},   # 43 is at index 9
+  {'startTime': 10.0, 'pulseWidth': 0.50},  # 44 is at index 10
+  {'startTime': 9.0, 'pulseWidth': 0.50},   # 45 is at index 9
+  {'startTime': 9.0, 'pulseWidth': 0.50},   # 46 is at index 9
+  {'startTime': 10.0, 'pulseWidth': 0.50},  # 47 is at index 10
+  {'startTime': 10.0, 'pulseWidth': 0.50},  # 48 is at index 10
+  {'startTime': 11.0, 'pulseWidth': 0.50},  # 49 is at index 11
+  {'startTime': 11.0, 'pulseWidth': 0.50}   #  is at index 11
 ]
 
 FLAG_MAPPING = {

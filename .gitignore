@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# Fucking Mac's
+*._*
+
+
 # Distribution / packaging
 .Python
 build/
