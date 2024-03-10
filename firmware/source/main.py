@@ -84,13 +84,14 @@ class Main:
         startTime = utime.ticks_ms()
 
         while(True):
-            if((self.button.value() != 1) or (utime.ticks_diff(utime.ticks_ms(), startTime) > self.sleepTimeout*1000)):
-                print("getting sleepy")
+            # if((self.button.value() != 1) or (utime.ticks_diff(utime.ticks_ms(), startTime) > self.sleepTimeout*1000)):
+                # print("getting sleepy")
                 #self.lowPowerPause()
                 #startTime = utime.ticks_ms()
                 #self.startupAnimation()
 
-            self.leds.waveAnimation(self.flagName, constants.LED_MAX)
-            time.sleep(0.1)
+            # self.leds.waveAnimation(self.flagName, constants.LED_MAX)
+            self.leds.waveDaFlag()
+            time.sleep(0.025)
 
 Main()

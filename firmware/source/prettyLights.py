@@ -4,6 +4,7 @@ import constants
 from neopixel import NeoPixel
 import machine
 import math
+import random
 from machine import Pin, Timer, SoftI2C
 
 
@@ -20,7 +21,9 @@ class LEDS:
     self.strand = NeoPixel(ledPin, 50) # [0]*50
     self.offset = 0
     self.ledBaseColors = [[0]*3]*50
-    self.secPerBeat = 1000
+    self.secPerBeat = 2000
+    self.newSecPerBeat=2000
+    self.randomTime = 2000
 
     self.updateColorScheme(self.colorScheme)
 
@@ -105,20 +108,25 @@ class LEDS:
   #   #self.strand.write()
 
   def waveDaFlag(self): 
+    maxBrightness = 0.35
+    lowBrightness = 0.10
     currentTime = utime.ticks_ms()
-    self.secPerBeat = 12000
-    # if(self.newBPM != 0 ):
-    #   #need to get smooth transitions,  as a shortcut going to add an offset to place the currentTime next in the same place relative to the cycle.
-    #   self.offset = ((currentTime+self.offset)%self.secPerBeat)*self.bpm/self.newBPM - currentTime
-    #   self.bpm = self.newBPM
-    #   self.secPerBeat = 60000/self.bpm
-    #   self.newBPM = 0
+    self.randomTime
+    if(currentTime > self.randomTime):
+      self.randomTime = currentTime + random.randint(1000, 2000)
+      self.newSecPerBeat = random.randint(1000, 2000)
+      self.offset = ((currentTime+self.offset)%self.secPerBeat)*self.newSecPerBeat/self.secPerBeat - currentTime
+      self.secPerBeat = self.newSecPerBeat
 
-    for index, led in enumerate(constants.LED_CONFIG):
-      brightness = self.calculateBrightness( self.secPerBeat, currentTime+self.offset, led['startTime'], led['pulseWidth'] )
-      print(f'led: {index+1}, brightness: {brightness}')
-      self.strand=tuple(round(i * 0.5* brightness) for i in self.ledBaseColors[index])
-      self.strand.write()
+    for index, led in enumerate(constants.WAVE_CONFIG):
+      brightness = self.calculateBrightness( self.secPerBeat, currentTime+self.offset, led['startTime']*self.secPerBeat, led['pulseWidth']*self.secPerBeat )
+      modifier = (brightness) * maxBrightness + lowBrightness
+      
+      # if( index == 1 ):
+        # print(f'led: {index+1}, brightness: {brightness}, modifer: {modifier}')
+      self.strand[index]=tuple(round(i * modifier ) for i in self.ledBaseColors[index])
+    
+    self.strand.write()
 
 
   def heartbeatRunLoop(self):
