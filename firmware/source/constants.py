@@ -276,7 +276,7 @@ COLOR_SCHEMES = {
   ['3cbf2e', 'e88f23', '7a4606', '3cbf2e', 'e88f23', '7a4606', '3cbf2e',
    'e88f23', '7a4606', '3cbf2e', 'e88f23', '7a4606', '3cbf2e', 'e88f23'],
 
-  'puertoRicoFlag': ['0000ff', 'ffffff', '0000ff', '0000ff', '0000ff', 'ffffff', '0000ff', '0000ff', '0000ff', 'ffffff', 
+  'puertoRicoFlag': ['0000ff', 'ffffff', '0000ff', '0000ff', '0000ff', 'ffffff', '0000ff', '0000ff', '0000ff', '0000ff', 
     '0000ff', 'ffffff', 'ff0000', 'ff0000', 'ff0000', 'ff0000', 'ffffff', 'ffffff', '0000ff', 'ff0000', 
     '0000ff', '0000ff', '0000ff', '0000ff', '0000ff', 'ff0000', 'ffffff', 'ff0000', 'ff0000', 'ff0000', 
     'ff0000', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ff0000', 'ff0000', 'ff0000', 'ffffff', 'ffffff', 
@@ -379,57 +379,113 @@ LINE_CONFIG_FULL = [
 ]
 
 WAVE_CONFIG = [
-  {'startTime': 0.0, 'pulseWidth': 0.75},   # 1 is at index 0
-  {'startTime': 0.136, 'pulseWidth': 0.75},   # 2 is at index 2
-  {'startTime': 0.064, 'pulseWidth': 0.75},   # 3 is at index 1
-  {'startTime': 0.064, 'pulseWidth': 0.75},   # 4 is at index 1
-  {'startTime': 0.136, 'pulseWidth': 0.75},   # 5 is at index 2
-  {'startTime': 0.136, 'pulseWidth': 0.75},   # 6 is at index 2
-  {'startTime': 0.2, 'pulseWidth': 0.75},   # 7 is at index 3
-  {'startTime': 0.064, 'pulseWidth': 0.75},   # 8 is at index 1
-  {'startTime': 0.064, 'pulseWidth': 0.75},   # 9 is at index 1
-  {'startTime': 0.2, 'pulseWidth': 0.75},   # 10 is at index 3
-  {'startTime': 0.336, 'pulseWidth': 0.75},   # 11 is at index 5
-  {'startTime': 0.2, 'pulseWidth': 0.75},   # 12 is at index 3
-  {'startTime': 0.2, 'pulseWidth': 0.75},   # 13 is at index 3
-  {'startTime': 0.336, 'pulseWidth': 0.75},   # 14 is at index 5
-  {'startTime': 0.336, 'pulseWidth': 0.75},   # 15 is at index 5
-  {'startTime': 0.2, 'pulseWidth': 0.75},   # 16 is at index 3
-  {'startTime': 0.336, 'pulseWidth': 0.75},   # 17 is at index 5
-  {'startTime': 0.336, 'pulseWidth': 0.75},   # 18 is at index 5
-  {'startTime': 0.4, 'pulseWidth': 0.75},   # 19 is at index 6
-  {'startTime': 0.336, 'pulseWidth': 0.75},   # 20 is at index 5
-  {'startTime': 0.264, 'pulseWidth': 0.75},   # 21 is at index 4
-  {'startTime': 0.464, 'pulseWidth': 0.75},   # 22 is at index 7
-  {'startTime': 0.464, 'pulseWidth': 0.75},   # 23 is at index 7
-  {'startTime': 0.336, 'pulseWidth': 0.75},   # 24 is at index 5
-  {'startTime': 0.464, 'pulseWidth': 0.75},   # 25 is at index 7
-  {'startTime': 0.464, 'pulseWidth': 0.75},   # 26 is at index 7
-  {'startTime': 0.336, 'pulseWidth': 0.75},   # 27 is at index 5
-  {'startTime': 0.4, 'pulseWidth': 0.75},   # 28 is at index 6
-  {'startTime': 0.464, 'pulseWidth': 0.75},   # 29 is at index 7
-  {'startTime': 0.536, 'pulseWidth': 0.75},   # 30 is at index 8
-  {'startTime': 0.536, 'pulseWidth': 0.75},   # 31 is at index 8
-  {'startTime': 0.6, 'pulseWidth': 0.75},   # 32 is at index 9
-  {'startTime': 0.736, 'pulseWidth': 0.75},   # 33 is at index 11
-  {'startTime': 0.736, 'pulseWidth': 0.75},   # 34 is at index 11
-  {'startTime': 0.736, 'pulseWidth': 0.75},   # 35 is at index 11
-  {'startTime': 0.664, 'pulseWidth': 0.75},   # 36 is at index 10
-  {'startTime': 0.464, 'pulseWidth': 0.75},   # 37 is at index 7
-  {'startTime': 0.464, 'pulseWidth': 0.75},   # 38 is at index 7
-  {'startTime': 0.736, 'pulseWidth': 0.75},   # 39 is at index 11
-  {'startTime': 0.464, 'pulseWidth': 0.75},   # 40 is at index 7
-  {'startTime': 0.536, 'pulseWidth': 0.75},   # 41 is at index 8
-  {'startTime': 0.536, 'pulseWidth': 0.75},   # 42 is at index 8
-  {'startTime': 0.6, 'pulseWidth': 0.75},   # 43 is at index 9
-  {'startTime': 0.664, 'pulseWidth': 0.75},   # 44 is at index 10
-  {'startTime': 0.6, 'pulseWidth': 0.75},   # 45 is at index 9
-  {'startTime': 0.6, 'pulseWidth': 0.75},   # 46 is at index 9
-  {'startTime': 0.664, 'pulseWidth': 0.75},   # 47 is at index 10
-  {'startTime': 0.664, 'pulseWidth': 0.75},   # 48 is at index 10
-  {'startTime': 0.736, 'pulseWidth': 0.75},   # 49 is at index 11
-  {'startTime': 0.736, 'pulseWidth': 0.75}   # 50  is at index 11
+  {'startTime': 0.0, 'pulseWidth': 0.80},   # 1 is at index 0
+  {'startTime': 0.136, 'pulseWidth': 0.80},   # 2 is at index 2
+  {'startTime': 0.064, 'pulseWidth': 0.80},   # 3 is at index 1
+  {'startTime': 0.064, 'pulseWidth': 0.80},   # 4 is at index 1
+  {'startTime': 0.136, 'pulseWidth': 0.80},   # 5 is at index 2
+  {'startTime': 0.136, 'pulseWidth': 0.80},   # 6 is at index 2
+  {'startTime': 0.2, 'pulseWidth': 0.80},   # 7 is at index 3
+  {'startTime': 0.064, 'pulseWidth': 0.80},   # 8 is at index 1
+  {'startTime': 0.064, 'pulseWidth': 0.80},   # 9 is at index 1
+  {'startTime': 0.2, 'pulseWidth': 0.80},   # 10 is at index 3
+  {'startTime': 0.336, 'pulseWidth': 0.80},   # 11 is at index 5
+  {'startTime': 0.2, 'pulseWidth': 0.80},   # 12 is at index 3
+  {'startTime': 0.2, 'pulseWidth': 0.80},   # 13 is at index 3
+  {'startTime': 0.336, 'pulseWidth': 0.80},   # 14 is at index 5
+  {'startTime': 0.336, 'pulseWidth': 0.80},   # 15 is at index 5
+  {'startTime': 0.2, 'pulseWidth': 0.80},   # 16 is at index 3
+  {'startTime': 0.336, 'pulseWidth': 0.80},   # 17 is at index 5
+  {'startTime': 0.336, 'pulseWidth': 0.80},   # 18 is at index 5
+  {'startTime': 0.4, 'pulseWidth': 0.80},   # 19 is at index 6
+  {'startTime': 0.336, 'pulseWidth': 0.80},   # 20 is at index 5
+  {'startTime': 0.264, 'pulseWidth': 0.80},   # 21 is at index 4
+  {'startTime': 0.464, 'pulseWidth': 0.80},   # 22 is at index 7
+  {'startTime': 0.464, 'pulseWidth': 0.80},   # 23 is at index 7
+  {'startTime': 0.336, 'pulseWidth': 0.80},   # 24 is at index 5
+  {'startTime': 0.464, 'pulseWidth': 0.80},   # 25 is at index 7
+  {'startTime': 0.464, 'pulseWidth': 0.80},   # 26 is at index 7
+  {'startTime': 0.336, 'pulseWidth': 0.80},   # 27 is at index 5
+  {'startTime': 0.4, 'pulseWidth': 0.80},   # 28 is at index 6
+  {'startTime': 0.464, 'pulseWidth': 0.80},   # 29 is at index 7
+  {'startTime': 0.536, 'pulseWidth': 0.80},   # 30 is at index 8
+  {'startTime': 0.536, 'pulseWidth': 0.80},   # 31 is at index 8
+  {'startTime': 0.6, 'pulseWidth': 0.80},   # 32 is at index 9
+  {'startTime': 0.736, 'pulseWidth': 0.80},   # 33 is at index 11
+  {'startTime': 0.736, 'pulseWidth': 0.80},   # 34 is at index 11
+  {'startTime': 0.736, 'pulseWidth': 0.80},   # 35 is at index 11
+  {'startTime': 0.664, 'pulseWidth': 0.80},   # 36 is at index 10
+  {'startTime': 0.464, 'pulseWidth': 0.80},   # 37 is at index 7
+  {'startTime': 0.464, 'pulseWidth': 0.80},   # 38 is at index 7
+  {'startTime': 0.736, 'pulseWidth': 0.80},   # 39 is at index 11
+  {'startTime': 0.464, 'pulseWidth': 0.80},   # 40 is at index 7
+  {'startTime': 0.536, 'pulseWidth': 0.80},   # 41 is at index 8
+  {'startTime': 0.536, 'pulseWidth': 0.80},   # 42 is at index 8
+  {'startTime': 0.6, 'pulseWidth': 0.80},   # 43 is at index 9
+  {'startTime': 0.664, 'pulseWidth': 0.80},   # 44 is at index 10
+  {'startTime': 0.6, 'pulseWidth': 0.80},   # 45 is at index 9
+  {'startTime': 0.6, 'pulseWidth': 0.80},   # 46 is at index 9
+  {'startTime': 0.664, 'pulseWidth': 0.80},   # 47 is at index 10
+  {'startTime': 0.664, 'pulseWidth': 0.80},   # 48 is at index 10
+  {'startTime': 0.736, 'pulseWidth': 0.80},   # 49 is at index 11
+  {'startTime': 0.736, 'pulseWidth': 0.80}   # 50  is at index 11
 ]
+
+
+TEST_CONFIG = [
+  {'startTime': 0.0,  'pulseWidth': 0.05},
+  {'startTime': 0.02, 'pulseWidth': 0.05},
+  {'startTime': 0.04, 'pulseWidth': 0.05},
+  {'startTime': 0.06, 'pulseWidth': 0.05},
+  {'startTime': 0.08, 'pulseWidth': 0.05},
+  {'startTime': 0.1,  'pulseWidth': 0.05},
+  {'startTime': 0.12, 'pulseWidth': 0.05},
+  {'startTime': 0.14, 'pulseWidth': 0.05},
+  {'startTime': 0.16, 'pulseWidth': 0.05},
+  {'startTime': 0.18, 'pulseWidth': 0.05},
+  {'startTime': 0.2,  'pulseWidth': 0.05},
+  {'startTime': 0.22, 'pulseWidth': 0.05},
+  {'startTime': 0.24, 'pulseWidth': 0.05},
+  {'startTime': 0.26, 'pulseWidth': 0.05},
+  {'startTime': 0.28, 'pulseWidth': 0.05},
+  {'startTime': 0.3,  'pulseWidth': 0.05},
+  {'startTime': 0.32, 'pulseWidth': 0.05},
+  {'startTime': 0.34, 'pulseWidth': 0.05},
+  {'startTime': 0.36, 'pulseWidth': 0.05},
+  {'startTime': 0.38, 'pulseWidth': 0.05},
+  {'startTime': 0.4,  'pulseWidth': 0.05},
+  {'startTime': 0.42, 'pulseWidth': 0.05},
+  {'startTime': 0.44, 'pulseWidth': 0.05},
+  {'startTime': 0.46, 'pulseWidth': 0.05},
+  {'startTime': 0.48, 'pulseWidth': 0.05},
+  {'startTime': 0.5,  'pulseWidth': 0.05},
+  {'startTime': 0.52, 'pulseWidth': 0.05},
+  {'startTime': 0.54, 'pulseWidth': 0.05},
+  {'startTime': 0.56, 'pulseWidth': 0.05},
+  {'startTime': 0.58, 'pulseWidth': 0.05},
+  {'startTime': 0.6,  'pulseWidth': 0.05},
+  {'startTime': 0.62, 'pulseWidth': 0.05},
+  {'startTime': 0.64, 'pulseWidth': 0.05},
+  {'startTime': 0.66, 'pulseWidth': 0.05},
+  {'startTime': 0.68, 'pulseWidth': 0.05},
+  {'startTime': 0.7,  'pulseWidth': 0.05},
+  {'startTime': 0.72, 'pulseWidth': 0.05},
+  {'startTime': 0.74, 'pulseWidth': 0.05},
+  {'startTime': 0.76, 'pulseWidth': 0.05},
+  {'startTime': 0.78, 'pulseWidth': 0.05},
+  {'startTime': 0.8,  'pulseWidth': 0.05},
+  {'startTime': 0.82, 'pulseWidth': 0.05},
+  {'startTime': 0.84, 'pulseWidth': 0.05},
+  {'startTime': 0.86, 'pulseWidth': 0.05},
+  {'startTime': 0.88, 'pulseWidth': 0.05},
+  {'startTime': 0.9,  'pulseWidth': 0.05},
+  {'startTime': 0.92, 'pulseWidth': 0.05},
+  {'startTime': 0.94, 'pulseWidth': 0.05},
+  {'startTime': 0.96, 'pulseWidth': 0.05},
+  {'startTime': 0.98, 'pulseWidth': 0.05},
+  {'startTime': 1.0,  'pulseWidth': 0.05}
+]
+
  
 
 FLAG_MAPPING = {

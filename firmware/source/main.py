@@ -79,7 +79,7 @@ class Main:
         self.leds = prettyLights.LEDS()
         self.leds.wakeup()
         self.startupAnimation()
-
+        # self.leds.ledTest()
         #Capture the Bootup Time
         startTime = utime.ticks_ms()
 

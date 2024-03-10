@@ -108,13 +108,13 @@ class LEDS:
   #   #self.strand.write()
 
   def waveDaFlag(self): 
-    maxBrightness = 0.35
-    lowBrightness = 0.10
+    maxBrightness = 0.25
+    lowBrightness = 0.20
     currentTime = utime.ticks_ms()
     self.randomTime
     if(currentTime > self.randomTime):
-      self.randomTime = currentTime + random.randint(1000, 2000)
-      self.newSecPerBeat = random.randint(1000, 2000)
+      self.randomTime = currentTime + random.randint(1000, 3000)
+      self.newSecPerBeat = random.randint(900, 2000)
       self.offset = ((currentTime+self.offset)%self.secPerBeat)*self.newSecPerBeat/self.secPerBeat - currentTime
       self.secPerBeat = self.newSecPerBeat
 
