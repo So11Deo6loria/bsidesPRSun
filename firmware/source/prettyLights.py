@@ -4,12 +4,13 @@ import constants
 from neopixel import NeoPixel
 import machine
 import math
+import random
 from machine import Pin, Timer, SoftI2C
 
 
 class LEDS:
   global timeDelay
-  colorScheme = 'makers'
+  colorScheme = 'puertoRicoFlag'
 
   def __init__(self):
     ledPin = Pin(16, Pin.OUT)
@@ -19,10 +20,12 @@ class LEDS:
 
     self.strand = NeoPixel(ledPin, 50) # [0]*50
     self.offset = 0
-    self.ledBaseColors = [[0]*3]*14
-    self.secPerBeat = 1000
+    self.ledBaseColors = [[0]*3]*50
+    self.secPerBeat = 2000
+    self.newSecPerBeat=2000
+    self.randomTime = 2000
 
-    #self.updateColorScheme(self.colorScheme)
+    self.updateColorScheme(self.colorScheme)
 
   def wakeup(self):
     self.ledPower.on()
@@ -58,15 +61,15 @@ class LEDS:
 
     startTime = utime.ticks_ms()
     currentTime = startTime
-    self.secPerBeat = 2000
-    self.offset = self.secPerBeat-currentTime%self.secPerBeat # special sauce to still use the general tick_ms time, but ensure we start at 0.
+    animationLength = 12000
+    self.offset = animationLength-currentTime%animationLength # special sauce to still use the general tick_ms time, but ensure we start at 0.
 
-    while( currentTime < (startTime+self.secPerBeat )):
+    while( currentTime < (startTime+animationLength )):
 
       currentTime = utime.ticks_ms()
 
-      for index, led in enumerate(constants.STARTUP_CONFIG):
-        brightness = self.calculateBrightness( self.secPerBeat, currentTime+self.offset, led['startTime']*self.secPerBeat, led['pulseWidth']*self.secPerBeat )
+      for index, led in enumerate(constants.WAVE_SMOOTH):
+        brightness = self.calculateBrightness( animationLength, currentTime+self.offset, led['startTime']*self.secPerBeat, led['pulseWidth']*self.secPerBeat )
         # print(f'time: {((currentTime+self.offset)%self.secPerBeat)}led: {index+1}, brightness: {brightness}')
         if index < 7:
           pass
@@ -80,28 +83,50 @@ class LEDS:
 
       time.sleep(.025)
 
-  def tickHeartbeat(self):
+  # def tickHeartbeat(self):
+  #   currentTime = utime.ticks_ms()
+  #   self.secPerBeat = 60000/self.bpm
+  #   if(self.newBPM != 0 ):
+  #     #need to get smooth transitions,  as a shortcut going to add an offset to place the currentTime next in the same place relative to the cycle.
+  #     self.offset = ((currentTime+self.offset)%self.secPerBeat)*self.bpm/self.newBPM - currentTime
+  #     self.bpm = self.newBPM
+  #     self.secPerBeat = 60000/self.bpm
+  #     self.newBPM = 0
+
+
+  #   for index, led in enumerate(constants.LED_CONFIG):
+  #     brightness = self.calculateBrightness( self.secPerBeat, currentTime+self.offset, led['startTime']*self.secPerBeat, led['pulseWidth']*self.secPerBeat )
+  #     # print(f'led: {index+1}, brightness: {brightness}')
+  #     if index < 7:
+  #       pass
+  #       #self.strand[index]=tuple(round(i * 0.5* brightness) for i in self.ledBaseColors[index])
+  #     else:
+  #       pass
+  #       #self.strand[index-7]=tuple(round(i *0.5* brightness) for i in self.ledBaseColors[index])
+
+  #   #self.strand2.write()
+  #   #self.strand.write()
+
+  def waveDaFlag(self): 
+    maxBrightness = 0.25
+    lowBrightness = 0.20
     currentTime = utime.ticks_ms()
-    self.secPerBeat = 60000/self.bpm
-    if(self.newBPM != 0 ):
-      #need to get smooth transitions,  as a shortcut going to add an offset to place the currentTime next in the same place relative to the cycle.
-      self.offset = ((currentTime+self.offset)%self.secPerBeat)*self.bpm/self.newBPM - currentTime
-      self.bpm = self.newBPM
-      self.secPerBeat = 60000/self.bpm
-      self.newBPM = 0
+    self.randomTime
+    if(currentTime > self.randomTime):
+      self.randomTime = currentTime + random.randint(1000, 3000)
+      self.newSecPerBeat = random.randint(900, 2000)
+      self.offset = ((currentTime+self.offset)%self.secPerBeat)*self.newSecPerBeat/self.secPerBeat - currentTime
+      self.secPerBeat = self.newSecPerBeat
 
-    for index, led in enumerate(constants.LED_CONFIG):
+    for index, led in enumerate(constants.WAVE_CONFIG):
       brightness = self.calculateBrightness( self.secPerBeat, currentTime+self.offset, led['startTime']*self.secPerBeat, led['pulseWidth']*self.secPerBeat )
-      # print(f'led: {index+1}, brightness: {brightness}')
-      if index < 7:
-        pass
-        #self.strand[index]=tuple(round(i * 0.5* brightness) for i in self.ledBaseColors[index])
-      else:
-        pass
-        #self.strand[index-7]=tuple(round(i *0.5* brightness) for i in self.ledBaseColors[index])
-
-    #self.strand2.write()
-    #self.strand.write()
+      modifier = (brightness) * maxBrightness + lowBrightness
+      
+      # if( index == 1 ):
+        # print(f'led: {index+1}, brightness: {brightness}, modifer: {modifier}')
+      self.strand[index]=tuple(round(i * modifier ) for i in self.ledBaseColors[index])
+    
+    self.strand.write()
 
 
   def heartbeatRunLoop(self):
