@@ -6,41 +6,67 @@ from machine import UART
 
 
 logo = """
- 
-
-                 ,*******,                             .*****,                  
-                     ,*******                       *******                     
-             .     *****  *****                    ******                       
-            **  ,****     ,*****                  ********       .**,           
-            *******     ****.***                  **********, .*****            
-             ****    ,****   ****                *******************            
-              ,********      ****              *******************              
-                 .********   ***,  ******** *************,...                   
-                             ***       ,*************                           
-                             ***       ,*** *******                             
-                             ****    ***.    *****                              
-                             ,***,.***    ,*** ,***                             
-                              ,*****    ***     ****                         
-                              ***********       ,***                            
-                           ,*************,      ****                            
-                   ....,************  ********  ****  *********.                
-               *******************              ****    .*********.             
-             ******************,                ****  /***.    .****            
-            ******  **********.                 ,*******     ****.***           
-            ***        *******                   ****.    .***     **           
-                       *******                    ****, ****       ,            
-                     ,******                        ******                      
-                   ******                              *******                  
+                                                                                                    
+                                                                                      ..            
+                                                                                     -**:           
+                                                                                     :**:           
+                                                                                   ..+**+..         
+                                                                                  -********:        
+                                                                                 -**********:       
+                                                                               .-+**********+-.     
+                                                                             .*****************+    
+                                                                               .=************=.     
+                                                                                .****.  .****:      
+                                                           ......               .***=    +***:      
+                                                   .:=+**************+=:.       .***=    +***:      
+                                                .=************************=:.   .***=    +***:      
+                                             .-******************************=. .***=    +***:      
+                                           .=**********************************+.***=    +***:      
+                                          :**************************************************:      
+                                         +***************************************************:      
+                                       .*****************=-... ..:=+************************..      
+                                      .***************:.             :+******************+-:        
+                                     .**************:                  .+****************:          
+                                     -************=.      .::..::.      .-*************-.           
+                                     +***********=      :. .-+=-. .:.    .=************.            
+                                    =************.    .: :********:.:.    .+***********-            
+                                   :************=     :.:**********: :     -***********=            
+                                  .*************-     : -**********= :     :***********=            
+                                 .+*************=     ..:**********. :     -***********=            
+      ..                         -***************.    .: .+*******..:.       ...::-=+**-            
+    .=**+:                      .****************=      .: .:--:. .:.                               
+    -******=.                     :+**************=.      .::..::.                                  
+  .-**********-.                     =*************:                                                
+  .*************:       .:::::.       .*************.                                               
+  -************.     .:. .:-:. .:.     :************=                                               
+  +***********-     :..=*******-...     :***********+.                                              
+ .************.    ...+*********= :.     ************.                                              
+ .************.    ...***********. :     +***********.                                              
+  ************.    ...+*********+ ..     ************.                                              
+  +***********-    .:..=*******=...     :***********+.                                              
+  -************.     .: .:---:..:.     .************=                                               
+  .*************:      .::...::.      .*************.                                               
+   -*************-.                 .-*************:                                                
+    -**************=.            ..=**************=.                                                
+    .=****************+-.     .-*****************=.                                                 
+      -*****************************************-.                                                  
+       .+**************************************.                                                    
+         :***********************************:                                                      
+           .+******************************:                                                        
+              :*************************:                                                           
+                ..:+***************+:..                                                             
+                       ..:::::...                                                                               
                    
-\" Badges of sky and cell,
- Hold truths, hidden very well.
- Seek, break both the spell. \"
+\"Esta Insignia, como San Juan,
+ es mas viejo que el frio y
+ se puede desbloquear si evitas
+ "Comiendome un Cable." \"
 
  """
 
 instructions = """
 
-To connect to with your heart, you should start with meditation...  to connect with this badge, thats a different story...
+To connect to with the Sentry Towers of El Morro, you should study 16th century architecture...  to connect with this badge, thats a different story...
 
 1. Install rshell: Open your terminal or command prompt and run:
 
@@ -64,11 +90,11 @@ To connect to with your heart, you should start with meditation...  to connect w
 
 6. Configure the Parameters: Modify the JSON attributes as needed:
 
-  "startupColor": The color pattern that you want to use with the board turns on.
-  "heartbeatColor": The color pattern that you want to use when the heart beats. 
-  "sleepTimeout": How long do you want the heart to stay on before going to sleep in secconds?
+  "startupColor": The color pattern that you want to use when the board turns on.
+  "flag": The color pattern that you want to use when the badge displays. 
+  "sleepTimeout": How long do you want the badge to stay on before going to sleep in secconds?
 
-Color Options:  heart, rainbow, green, red, orange, yellow, blue, purple, cinnamontoastcrunch, fruitypebbles, applejacks. 
+Color Options: red, rainbow, green, red, orange, yellow, blue, purple, cinnamontoastcrunch, fruitypebbles, applejacks. 
   
 7. Reboot board
 
@@ -76,14 +102,14 @@ Color Options:  heart, rainbow, green, red, orange, yellow, blue, purple, cinnam
 
 8. Look Cool
 
-  I mean you've already pretty cool. Enjoy your Defcon. 
+  I mean you've already pretty cool. Enjoy your BsidesPR. 
 """
 
 def uartVersion(uart):
   uart.write("\r\nSoftware version 1.0\n")
 
 def uartSecret(uart):
-  uart.write("\r\nMy Hearts Beats for You!\r\n")
+  uart.write("\r\n¡Mi Ensignia Esta al Garete a lo Loco!\r\n")
 
 def uartWhoami(uart):
     #just a joke
@@ -135,7 +161,7 @@ class CerealInterface:
                       uartWhoami(self.uart)
                   elif commandString == "secret":
                       uartSecret(self.uart)                    
-                  elif commandString == "urbreakingmyheart":
+                  elif commandString == "tainosun":
                       uartSecret(self.uart)                    
                   elif commandString == "connect":
                       uartInstructions(self.uart)                    

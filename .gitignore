@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 # Fucking Mac's
+*_DS*
 *._*
 
 
@@ -166,3 +167,4 @@ cython_debug/
 #
 # Caleb Added
 *.zip
+firmware/.DS_Store
