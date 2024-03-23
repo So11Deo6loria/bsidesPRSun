@@ -94,10 +94,10 @@ COLOR_SCHEMES = {
         "3e1d05", "ffff00", "ffff00", "ffff00", "000000", "000000", "000000", "000000", "000000", "000000"
     ],
     "nathantsmith": [
-        "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", 
-        "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", 
-        "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", 
-        "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "000000", "000000", "ff0000", 
+        "ffffff", "ffffff", "ffa500", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", 
+        "ff0000", "ffffff", "ffffff", "ffffff", "ffffff", "ffff00", "ffffff", "ffffff", "ffffff", "ffffff", 
+        "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "0000ff", "ffffff", 
+        "ffffff", "ffffff", "ffffff", "ffffff", "00ff00", "ffffff", "ffffff", "101010", "101010", "ff0000", 
         "ff0000", "ff0000", "ff0000", "ff0000", "ff0000", "ff0000", "ff0000", "ff0000", "ff0000", "ff0000"
     ],
     "Kshockles": [
