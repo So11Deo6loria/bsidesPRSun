@@ -1,4 +1,4 @@
-#import lowpower
+import lowpower
 import utime
 import time # Remove later
 import machine
@@ -18,33 +18,8 @@ class Main:
         self.leds.shutdown()
         while(self.button.value() != 1):
             utime.sleep_ms(10)
-        #lowpower.dormant_until_pin(constants.BUTTON)
+        lowpower.dormant_until_pin(constants.BUTTON)
         self.leds.wakeup()
-
-    def startupAnimation(self):
-        self.startupColor = constants.COLOR_MAPPING[self.startupColorName]
-        blinkDelay = 0.01
-        self.leds.logoBlink(self.startupColor, blinkDelay, 0.75)
-        time.sleep(blinkDelay)            
-        blinkDelay = 0.025
-        self.leds.logoBlink(self.startupColor, blinkDelay, 0.5)
-        time.sleep(blinkDelay)
-        self.leds.logoBlink(self.startupColor, blinkDelay, 0.5)
-        time.sleep(blinkDelay)     
-        blinkDelay = 0.05
-        self.leds.logoBlink(self.startupColor, blinkDelay, 0.5)
-        time.sleep(blinkDelay)
-        self.leds.logoBlink(self.startupColor, blinkDelay, 0.5)
-        time.sleep(blinkDelay)
-        self.leds.logoBlink(self.startupColor, blinkDelay, 0.5)
-        time.sleep(blinkDelay)            
-        blinkDelay = 0.1
-        self.leds.logoBlink(self.startupColor, blinkDelay, 0.75)
-        time.sleep(blinkDelay)    
-        self.leds.logoBlink(self.startupColor, blinkDelay, 0.75)
-        time.sleep(blinkDelay)            
-        blinkDelay = 2
-        self.leds.logoBlink(self.startupColor, blinkDelay, 1)   
 
     def read_config(self):
         try:
@@ -70,9 +45,9 @@ class Main:
         self.button = Pin(constants.BUTTON, Pin.IN, Pin.PULL_UP)
 
         #Initialize LED Manager and Turn on Power
-        self.leds = prettyLights.LEDS(self.flagName)
+        self.leds = prettyLights.LEDS(self.flagName, self.startupColorName)
         self.leds.wakeup()
-        self.startupAnimation()
+        self.leds.startupAnimation()
 
         serialInterface = cerealInterface.CerealInterface(self.leds)
         _thread.start_new_thread(serialInterface.uartShell, ())        
@@ -83,9 +58,9 @@ class Main:
         while(True):
             if((self.button.value() != 1) or (utime.ticks_diff(utime.ticks_ms(), startTime) > self.sleepTimeout*1000)):
                 print("getting sleepy")
-                #self.lowPowerPause()
+                self.lowPowerPause()
                 startTime = utime.ticks_ms()
-                self.startupAnimation()
+                self.leds.startupAnimation()
             self.leds.waveDaFlag()
             time.sleep(0.025)
 

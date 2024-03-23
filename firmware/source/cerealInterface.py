@@ -111,11 +111,23 @@ def uartParseFlag(uart, string, leds):
   if len(parts) == 2 and parts[0] == "flag":
      if flagName in constants.COLOR_SCHEMES:
         leds.updateColorScheme(flagName)
-        uart.write(f"\r\nSwitching to {flagName}\r\n") 
+        uart.write(f"\r\nSwitching Flag to {flagName}\r\n") 
      else:
       uart.write("\r\nUnsupported Flag. Make it yourself!\r\n")       
   else:
       uart.write("\r\nInvalid Flag Command. Try: flag puertoRicoFlag\r\n")   
+
+def uartParseStartupColor(uart, string, leds):
+  parts = string.split()
+  startupColorName = parts[1]
+  if len(parts) == 2 and parts[0] == "startupColor":
+     if startupColorName in constants.COLOR_MAPPING:
+        leds.updateStartupColor(startupColorName)
+        uart.write(f"\r\nSwitching Startup Color to {startupColorName}\r\n") 
+     else:
+      uart.write("\r\nUnsupported Startup Color. Make it yourself!\r\n")       
+  else:
+      uart.write("\r\nInvalid Startup Color Command. Try: startupColor red\r\n")   
 
 def uartInstructions(uart):
   uart.write(instructions)
@@ -132,6 +144,7 @@ def uartHelp(uart):
   uart.write(" secret:  wanna know a secret...\r\n")
   uart.write(" connect: Instructions to customize me!\r\n")
   uart.write(" flag: Change the flag to a preset config. Try: flag puertoRicoFlag\r\n")
+  uart.write(" startupColor: Change the startup animation color to a preset config. Try: startupColor red\r\n")
 
 class CerealInterface:
   def __init__(self, leds):
@@ -173,7 +186,10 @@ class CerealInterface:
                       self.uart.write(prompt)  
                   elif commandString.startswith("flag"):
                       uartParseFlag(self.uart, commandString, self.leds)    
-                      self.uart.write(prompt)                                       
+                      self.uart.write(prompt)   
+                  elif commandString.startswith("startupColor"):
+                      uartParseStartupColor(self.uart, commandString, self.leds)    
+                      self.uart.write(prompt)                                                                 
                   elif commandString == "":
                     self.uart.write(prompt)
                   else:

@@ -12,7 +12,7 @@ from machine import Pin, Timer, SoftI2C
 class LEDS:
     global timeDelay
 
-    def __init__(self, colorScheme):
+    def __init__(self, colorScheme, startupColorName):
         ledPin = Pin(16, Pin.OUT)
 
         self.ledPower = Pin(22, Pin.OUT)
@@ -25,6 +25,7 @@ class LEDS:
         self.newSecPerBeat = 2000
         self.randomTime = 2000
         self.colorScheme = colorScheme
+        self.startupColor = constants.COLOR_MAPPING[startupColorName]
 
         self.updateColorScheme(self.colorScheme)
 
@@ -52,7 +53,41 @@ class LEDS:
                     bytearray.fromhex(constants.COLOR_SCHEMES[newColorScheme][index])
                 )
         else:
-            print("Could not Find Color")
+            print("Could not Find Color Scheme")
+
+    def updateStartupColor(self, newStartupColor):
+        print(f"Changing color to: {newStartupColor}")
+
+        # sets up a base color list/array thats easier to work with from the generic hex values that are easier to edit.  Done only on change for efficiency...
+        if newStartupColor in constants.COLOR_MAPPING:
+            self.startupColor = constants.COLOR_MAPPING[newStartupColor]
+            self.updateConfigFile("startupColor", newStartupColor)
+        else:
+            print("Could not Find Startup Color")
+
+    def startupAnimation(self):        
+        blinkDelay = 0.01
+        self.logoBlink(self.startupColor, blinkDelay, 0.75)
+        time.sleep(blinkDelay)            
+        blinkDelay = 0.025
+        self.logoBlink(self.startupColor, blinkDelay, 0.5)
+        time.sleep(blinkDelay)
+        self.logoBlink(self.startupColor, blinkDelay, 0.5)
+        time.sleep(blinkDelay)     
+        blinkDelay = 0.05
+        self.logoBlink(self.startupColor, blinkDelay, 0.5)
+        time.sleep(blinkDelay)
+        self.logoBlink(self.startupColor, blinkDelay, 0.5)
+        time.sleep(blinkDelay)
+        self.logoBlink(self.startupColor, blinkDelay, 0.5)
+        time.sleep(blinkDelay)            
+        blinkDelay = 0.1
+        self.logoBlink(self.startupColor, blinkDelay, 0.75)
+        time.sleep(blinkDelay)    
+        self.logoBlink(self.startupColor, blinkDelay, 0.75)
+        time.sleep(blinkDelay)            
+        blinkDelay = 2
+        self.logoBlink(self.startupColor, blinkDelay, 1)   
 
     def calculateBrightness(self, cycleTime, currentTime, startTime, pulseWidth):
         time = currentTime % cycleTime
