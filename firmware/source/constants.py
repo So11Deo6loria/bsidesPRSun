@@ -90,11 +90,19 @@ COLOR_SCHEMES = {
   ],
   
   "So11Deo6loria": [
-      
+    'ffff00', 'ffff00', 'ffff00', 'ffff00', '3e1d05', '3e1d05', '3e1d05', 'ffff00', 'ffff00', 'ffff00', 
+    'ffff00', '3e1d05', 'ffff00', 'ffff00', 'ffff00', 'ffff00', '3e1d05', '3e1d05', '3e1d05', '3e1d05', 
+    '3e1d05', '3e1d05', '3e1d05', '3e1d05', '3e1d05', '3e1d05', '3e1d05', 'ffff00', 'ffff00', 'ffff00', 
+    'ffff00', '3e1d05', 'ffff00', 'ffff00', 'ffff00', 'ffff00', '3e1d05', 'ffff00', '000000', '3e1d05', 
+    '3e1d05', 'ffff00', 'ffff00', 'ffff00', '000000', '000000', '000000', '000000', '000000', '000000'
   ],
 
   "nathantsmith": [
-      
+    'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 
+    'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 
+    'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 
+    'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', 'ffffff', '000000', '000000', 'ff0000', 
+    'ff0000', 'ff0000', 'ff0000', 'ff0000', 'ff0000', 'ff0000', 'ff0000', 'ff0000', 'ff0000', 'ff0000'   
   ],
 
   "Kshockles": [

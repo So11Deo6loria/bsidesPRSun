@@ -65,13 +65,12 @@ class Main:
         else:
             print("Loading default configuration")
             self.startupColorName = 'white',
-            self.flagName = 'puertorico'
+            self.flagName = 'puertoRicoFlag'
             self.sleepTimeout = 300 # 300 seconds
-
         self.button = Pin(constants.BUTTON, Pin.IN, Pin.PULL_UP)
 
         #Initialize LED Manager and Turn on Power
-        self.leds = prettyLights.LEDS()
+        self.leds = prettyLights.LEDS(self.flagName)
         self.leds.wakeup()
         self.startupAnimation()
 

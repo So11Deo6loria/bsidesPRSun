@@ -4,15 +4,15 @@ import constants
 from neopixel import NeoPixel
 import machine
 import math
+import json
 import random
 from machine import Pin, Timer, SoftI2C
 
 
 class LEDS:
   global timeDelay
-  colorScheme = 'texasFlag'
 
-  def __init__(self):
+  def __init__(self, colorScheme):
     ledPin = Pin(16, Pin.OUT)
     
     self.ledPower = Pin( 22, Pin.OUT)
@@ -24,11 +24,21 @@ class LEDS:
     self.secPerBeat = 2000
     self.newSecPerBeat=2000
     self.randomTime = 2000
+    self.colorScheme = colorScheme
 
     self.updateColorScheme(self.colorScheme)
 
   def wakeup(self):
     self.ledPower.on()
+
+  def updateConfigFile(self, key, value):
+    with open('config.json', "r") as json_file:
+        config_data = json.load(json_file)
+
+    config_data[key] = value
+
+    with open('config.json', "w") as json_file:
+        json.dump(config_data, json_file)     
 
   def updateColorScheme( self, newColorScheme ):
     print( f'Changing color to: {newColorScheme}')
@@ -36,6 +46,7 @@ class LEDS:
     #sets up a base color list/array thats easier to work with from the generic hex values that are easier to edit.  Done only on change for efficiency...
     if newColorScheme in constants.COLOR_SCHEMES:
       self.colorScheme = newColorScheme
+      self.updateConfigFile('flag', newColorScheme)
       for index, color in enumerate(constants.COLOR_SCHEMES[newColorScheme]):
         self.ledBaseColors[index]=list(bytearray.fromhex(constants.COLOR_SCHEMES[newColorScheme][index]))
     else:
