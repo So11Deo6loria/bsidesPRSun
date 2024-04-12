@@ -1,4 +1,4 @@
-![image](https://github.com/So11Deo6loria/bsidesPRSun/assets/6652652/8aac5f49-2a97-4647-8f99-55e9d09d9f67)
+![image](https://github.com/So11Deo6loria/bsidesPRSun/assets/6652652/972387b2-ad09-4c54-bda1-2f023997ff9e)
 
 # BSidesPRSun
 Welcome to BSides Puerto Rico 2024!!! We were happy to have the opportunity to create this year's badge! 
