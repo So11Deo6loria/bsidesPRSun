@@ -1,4 +1,4 @@
-# bsidesPRSun
+# BSidesPRSun
 Welcome to BSides Puerto Rico 2024!!! We were happy to have the opportunity to create this year's badge! 
 
 # Functionality
