@@ -1,6 +1,6 @@
-![image](https://github.com/So11Deo6loria/bsidesPRSun/assets/6652652/972387b2-ad09-4c54-bda1-2f023997ff9e)
+![badgePromo](https://github.com/So11Deo6loria/bsidesPRSun/assets/14260835/9afd58e0-b5ad-4fe6-908a-7d442bd4463e)
 
-# BSidesPRSun
+# BSidesPR Taino Sun
 Welcome to BSides Puerto Rico 2024!!! We were happy to have the opportunity to create this year's badge! 
 
 # Functionality
